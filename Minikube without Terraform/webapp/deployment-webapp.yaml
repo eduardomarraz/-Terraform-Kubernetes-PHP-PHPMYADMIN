@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-webserver
+  template:
+    metadata:
+      labels:
+        app: php-webserver
+    spec:
+      containers:
+      - name: php-webserver
+        image: 172.19.181.24:5000/php-webserver:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        env:
+        - name: MYSQL_HOST
+          value: "mysql"
+        - name: MYSQL_USER
+          value: "user"
+        - name: MYSQL_PASSWORD
+          value: "password"
+        - name: MYSQL_DATABASE
+          value: "database"
