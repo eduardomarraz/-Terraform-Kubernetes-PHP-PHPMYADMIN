@@ -3,9 +3,8 @@
 ```sh
 # Prerrequisitos
 
-# 1. Instalar Terraform en Windows.
-# 2. Tener Docker iniciado en Windows y ejecutar el comando:
-docker context use default
+# Instalar Terraform en Windows.
+https://developer.hashicorp.com/terraform/install
 
 # Pasos
 
