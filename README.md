@@ -15,7 +15,8 @@ eval $(minikube docker-env)             # Unix shells
 minikube docker-env | Invoke-Expression # PowerShell
 docker build -t php-webserver:latest .
 
-# 2. Situarse en el directorio donde tienes los archivos, (Tengo dividido los microservicios funcionando individualmente en tres carpetas: Phpmyadmin, Phpmyadmin & MySQL y Phpmyadmin & MySQL & webapp):
+# 2. Situarse en el directorio donde tienes los archivos, (Tengo dividido los microservicios
+# funcionando individualmente en tres carpetas: Phpmyadmin, Phpmyadmin & MySQL y Phpmyadmin & MySQL & webapp).
 `-- Release practice
     |-- Kubernetes transform into .tf
     |   |-- main.tf
