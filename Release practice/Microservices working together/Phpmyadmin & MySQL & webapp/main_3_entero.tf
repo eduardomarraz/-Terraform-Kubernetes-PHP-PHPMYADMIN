@@ -207,6 +207,13 @@ resource "kubernetes_config_map" "webapp-index" {
   }
 }
 
+# Construir la imagen Docker
+resource "null_resource" "build_docker_image" {
+  provisioner "local-exec" {
+    command = "eval $(minikube docker-env) && docker build -t php-webserver:latest ."
+  }
+}
+
 # Deployment para la aplicación web
 resource "kubernetes_deployment" "webapp" {
   metadata {
@@ -284,13 +291,4 @@ resource "kubernetes_service" "webapp" {
 
     type = "NodePort"
   }
-}
-
-# Construir la imagen Docker
-resource "null_resource" "build_docker_image" {
-  provisioner "local-exec" {
-    command = "eval $(minikube docker-env) && docker build -t php-webserver:latest ."
-  }
-
-  # No se necesita depends_on aquí, ya que el comando se ejecuta localmente
 }

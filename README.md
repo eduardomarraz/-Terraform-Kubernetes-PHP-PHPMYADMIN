@@ -10,6 +10,7 @@ https://developer.hashicorp.com/terraform/install
 
 # 1. Iniciar Minikube:
 minikube start
+docker context use default
 eval $(minikube docker-env)             # Unix shells
 minikube docker-env | Invoke-Expression # PowerShell
 docker build -t php-webserver:latest .  # Realizar el comando situandose en el Dockerfile.
