@@ -43,11 +43,11 @@ terraform init
 # 4. Aplicar la configuración de Terraform:
 terraform apply
 
-# 5. Exponer el pod utilizando `kubectl`:
-kubectl expose pod terraform-example-7997bdd7d7-5qc4t -n k8s-ns-by-tf --type=NodePort --port=8080
+# 5. Redirigir los puertos para acceder a la aplicación utilizando `kubectl` o usando minikube.
+# Con kubectl
+kubectl port-forward -n phpmyadmin-example-7997bdd7d7-5qc4t 8080:80
 
-# 6. Redirigir los puertos para acceder a la aplicación:
-kubectl port-forward -n k8s-ns-by-tf terraform-example-7997bdd7d7-5qc4t 8080:80
+# Con minikube service pod
+minikube service phpmyadmin
 
-# Esto te permitirá correr Nginx en el puerto 8080.
 ```
